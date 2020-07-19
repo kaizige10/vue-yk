@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+
+  <script src="./yue.js"></script>
+  <script>
+    const map = new Map();
+    map.set(1, '1xx');
+    const app = new Yue({
+      data: {
+        test: "i am test",
+        foo: {
+          bar: "bar"
+        },
+        // arr: [1,2,3],
+      }
+    });
+
+    // app.$data.test = "hello, kaizige";
+    // app.$data.foo.bar = "mu lady bar";
+    app.test = "hello, kaizige";
+    app.foo.bar = "mu lady bar";
+
+    console.log('app.test', app.test);
+    console.log('app.foo.bar', app.foo.bar);
+
+    console.log('app', app);
+  </script>
+</body>
+</html>

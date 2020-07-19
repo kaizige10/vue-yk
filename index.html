@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{name}}</p>
+    <p y-text="name"></p>
+    <p>{{age}}</p>
+    <p>
+      {{doubleAge}}
+    </p>
+    <input type="text" y-model="name">
+    <button @click="changeName">改个名字</button>
+    <div y-html="html"></div>
+  </div>
+
+  <script src="./yue.js"></script>
+  <script src="./compile.js"></script>
+  <script>
+    const app = new Yue({
+      el: "#app",
+      data: {
+        name: "I am test",
+        age: 12,
+        html: '<button>这是一个按钮</button>',
+        doubleAge: [1, 2, 3]
+      },
+      created () {
+        console.log("开始啦");
+        setTimeout(() => {
+          this.name = "I am test New！"
+
+          this.doubleAge.push(4);
+        }, 1000);
+      },
+      methods: {
+        changeName() {
+          this.name = "Hi there, Kaizige";
+          this.age = 1;
+        }
+      }
+    })
+  </script>
+</body>
+</html>
